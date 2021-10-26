@@ -1,0 +1,17 @@
+.searchBarWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1em 0;
+  > input {
+    font-size: 1.15em;
+    padding: 0.25em 0.5em;
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+    outline: none;
+    min-width: 300px;
+    &::placeholder {
+      color: #bdc3c7;
+    }
+  }
+}

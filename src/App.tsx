@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.scss";
+import SearchBar from "./Components/SearchBar";
+
+// @ts-ignore
+export const Context = React.createContext();
 
 function App() {
+  const [apiData, setApiData] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetch("https://vast-shore-74260.herokuapp.com/banks?city=MUMBAI")
+      .then((res) => res.json())
+      // @ts-ignore
+      .then((data) => setApiData(data));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Context.Provider value={{ apiData, setApiData }}>
+      <div className="App">
+        <SearchBar />
+      </div>
+    </Context.Provider>
   );
 }
 
