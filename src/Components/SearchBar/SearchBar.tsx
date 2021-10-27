@@ -25,7 +25,7 @@ const SearchBar = () => {
   function searchBoxAct() {
     if (inputVal.length >= 3) {
       const tempArr: any = [];
-      apiData.forEach((data: any) => {
+      apiData?.forEach((data: any) => {
         if (
           (data.branch as string).toLowerCase().startsWith(inputVal) ||
           (data.address as string).toLowerCase().includes(inputVal) ||

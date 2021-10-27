@@ -15,7 +15,7 @@ const BanksTable = () => {
 
   useEffect(() => {
     const tempArr: any[] = [];
-    favoriteBanks.forEach((bank: any) => {
+    favoriteBanks?.forEach((bank: any) => {
       tempArr.push(bank.ifsc);
     });
     //   @ts-ignore
@@ -76,7 +76,7 @@ const BanksTable = () => {
             } else {
               const tempArrifsc: any[] = [];
               const tempArr: any[] = [];
-              prevBanks.forEach((bank: any) => {
+              prevBanks?.forEach((bank: any) => {
                 //   @ts-ignore
                 if (bank.ifsc !== data.ifsc) {
                   // @ts-ignore

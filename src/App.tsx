@@ -12,6 +12,7 @@ function App() {
   const [favoriteBanks, setFavoriteBanks] = useState([]);
 
   useEffect(() => {
+    localStorage.setItem("favoriteBanks", JSON.stringify([]));
     fetch("https://vast-shore-74260.herokuapp.com/banks?city=MUMBAI")
       .then((res) => res.json())
       // @ts-ignore
